@@ -1,0 +1,20 @@
+%nav.navbar.navbar-default
+  / !!! in gereric navbar here is container-fluid class instead of the one below
+  .navbar-container
+    / Brand and toggle get grouped for better mobile display
+    .navbar-header
+      %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      .navbar-brand= link_to 'KmGram', root_path
+    / Collect the nav links, forms, and other content for toggling
+    #bs-navbar-collapse-1.collapse.navbar-collapse
+      %ul.nav.navbar-nav.navbar-right
+        %li
+          = link_to 'New Post', new_post_path
+        %li
+          = link_to 'Login', '#'
+        %li
+          = link_to 'Register', '#'
