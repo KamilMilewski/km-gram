@@ -1,10 +1,9 @@
-.container
-  .posts-wrapper.row
-    -@posts.each do |post|
-      .post
-        .post-head
-          Kamil Milewski
-        .image.center-block
-          =image_tag post.image.url(:medium)
-        %p.caption
-          =post.caption
+.posts-wrapper.row
+  -@posts.each do |post|
+    .post
+      .post-head
+        Kamil Milewski
+      .image.center-block
+        =image_tag post.image.url(:medium)
+      %p.caption
+        =post.caption
