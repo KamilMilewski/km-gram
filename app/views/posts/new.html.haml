@@ -1,12 +1,6 @@
 .row
   .col-md-8.col-md-offset-2
     %h1 New post
-/ form-group and text-center are bootstrap classes
-.form-wrapper
-  = simple_form_for @post, html: { class: 'form-horizontal', multipart: true} do |f|
-    .form-group
-      = f.input   :image,   as: :file, label: 'Upload image'
-    .form-group.text-center
-      = f.input   :caption, as: :string
-    .form-group.text-center
-      = f.button  :submit,  class: 'btn-success'
+    =render 'form'
+    .text-center
+      =link_to 'return', posts_path

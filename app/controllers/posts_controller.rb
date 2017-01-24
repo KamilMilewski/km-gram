@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :find_post, only: [:show]
+  before_action :find_post, only: [:show, :edit, :update, :destroy]
 
   def index
     @posts = Post.all
@@ -20,9 +20,23 @@ class PostsController < ApplicationController
 
   def show; end
 
-  def update; end
+  def edit; end
 
-  def delete; end
+  def update
+    if @post.update(post_params)
+      redirect_to @post
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    if @post.destroy
+      redirect_to posts_path
+    else
+      render edit
+    end
+  end
 
   private
 

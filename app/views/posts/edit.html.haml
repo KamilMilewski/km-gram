@@ -1,0 +1,8 @@
+.row
+  .col-md-8.col-md-offset-2
+    %h1 Edit post
+    =render 'form'
+    .text-center
+      =link_to 'return', posts_path
+      |
+      =link_to 'delete', @post, method: :delete, data: { confirm: "Are you sure?" }
