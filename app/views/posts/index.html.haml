@@ -2,8 +2,10 @@
   -@posts.each do |post|
     .post
       .post-head
-        Kamil Milewski
+        .name
+          Kamil Milewski
       .image.center-block
-        =image_tag post.image.url(:medium)
+        =link_to post do
+          =image_tag post.image.url(:medium), class:'img-responsive'
       %p.caption
         =post.caption
