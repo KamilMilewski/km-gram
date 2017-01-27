@@ -4,7 +4,10 @@ class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.build(comment_params)
     if @comment.save
-      redirect_back fallback_location: root_url
+      respond_to do |format|
+        format.html { redirect_back fallback_location: root_url }
+        format.js
+      end
     else
       flash[:danger] = 'Could not create comment.'
       redirect_to root_path

@@ -15,8 +15,8 @@
           =post.user.name
         =post.caption
       / Comments:
-      -post.comments.each do |comment|
-        =render 'comments/comment', comment: comment
+      .comments{id: "comments_#{post.id}"}
+        =render post.comments if post.comments
     .comment-like-form.row
       .like-button.col-sm-1
         %span(class="glyphicon glyphicon-heart-empty")
