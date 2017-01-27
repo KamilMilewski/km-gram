@@ -1,0 +1,24 @@
+.posts-wrapper
+  .post
+    .post-head
+      .thumb-img
+      .user-name
+        =post.user.name
+      .time-ago
+        =time_ago_in_words post.created_at
+    .image.center-block
+      =link_to post do
+        =image_tag post.image.url(:medium), class: 'img-responsive'
+    .post-bottom
+      .caption
+        .user-name
+          =post.user.name
+        =post.caption
+      / Comments:
+      -post.comments.each do |comment|
+        =render 'comments/comment', comment: comment
+    .comment-like-form.row
+      .like-button.col-sm-1
+        %span(class="glyphicon glyphicon-heart-empty")
+      .comment-form.col-sm-11
+        =render 'comments/form', post: post

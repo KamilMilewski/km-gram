@@ -1,11 +1,2 @@
 .posts-wrapper.row
-  -@posts.each do |post|
-    .post
-      .post-head
-        .name
-          Kamil Milewski
-      .image.center-block
-        =link_to post do
-          =image_tag post.image.url(:medium), class:'img-responsive'
-      %p.caption
-        =post.caption
+  =render @posts

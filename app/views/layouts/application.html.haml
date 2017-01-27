@@ -5,6 +5,6 @@
     = render 'layouts/navbar'
     .container
       -flash.each do |type, msg|
-        %div{class: "alert alert-#{type}"}
+        %div{class: "alert alert-#{type || 'info'}"}
           = msg
       = yield

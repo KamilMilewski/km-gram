@@ -2,14 +2,16 @@ require 'rails_helper.rb'
 
 feature 'Editing posts' do
   background do
-    post = FactoryGirl.create(:post)
+    user = FactoryGirl.create(:user)
+    log_in user
+    post = FactoryGirl.create(:post, user_id: user.id)
     visit '/'
     # click on the image to 'show' the individual post
     find(:xpath, "//a[contains(@href, 'posts/#{post.id}')]").click
     click_link 'edit'
   end
 
-  scenario 'can edit post' do
+  scenario 'can edit post as the owner' do
     new_caption = 'Internet is scary!!! I don\'t wanna my pics here :( )'
     fill_in 'Caption', with: new_caption
     click_button 'Update'
@@ -21,5 +23,19 @@ feature 'Editing posts' do
     attach_file('image', 'spec/files/images/kitten.zip')
     click_button 'Update'
     expect(page).to have_content('Could not update post.')
+  end
+
+  it 'should not allow edit foreign post via the show page' do
+    foreign_user = FactoryGirl.create(:user)
+    foreign_post = FactoryGirl.create(:post, user_id: foreign_user.id)
+    visit post_path(foreign_post)
+    expect(page).to_not have_content('edit')
+  end
+
+  it 'should not allow edit foreign post via url' do
+    foreign_user = FactoryGirl.create(:user)
+    foreign_post = FactoryGirl.create(:post, user_id: foreign_user.id)
+    visit edit_post_path(foreign_post)
+    expect(page).to have_content("That post dosen't belong to you!")
   end
 end

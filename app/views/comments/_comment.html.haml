@@ -1,0 +1,8 @@
+.comment{ id: "comment_#{comment.id}"}
+  .user-name
+    =comment.user.name
+  .comment-content
+    =comment.content
+  -if current_user.id == comment.user_id
+    =link_to comment, method: :delete, id: "delete-#{comment.id}", data: { confirm: 'Are you sure?'} do
+      %span(class="glyphicon glyphicon-remove delete-comment")
