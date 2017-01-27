@@ -4,10 +4,7 @@ class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.build(comment_params)
     if @comment.save
-      respond_to do |format|
-        format.html { redirect_back fallback_location: root_url }
-        format.js
-      end
+      respond
     else
       flash[:danger] = 'Could not create comment.'
       redirect_to root_path
@@ -17,12 +14,13 @@ class CommentsController < ApplicationController
   def destroy
     if current_user.id != @comment.user_id
       flash[:danger] = "You can't delete foreign comments."
+      redirect_back fallback_location: root_url
     elsif @comment.destroy
-      flash[:success] = 'Comment deleted.'
+      respond
     else
       flash[:danger] = 'Could not delete comment.'
+      redirect_back fallback_location: root_url
     end
-    redirect_back fallback_location: root_url
   end
 
   private
@@ -33,5 +31,12 @@ class CommentsController < ApplicationController
 
   def find_comment
     @comment = Comment.find(params[:id])
+  end
+
+  def respond
+    respond_to do |format|
+      format.html { redirect_back fallback_location: root_url }
+      format.js
+    end
   end
 end
