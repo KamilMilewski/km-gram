@@ -1,6 +1,18 @@
 class CommentsController < ApplicationController
   before_action :find_comment, only: [:destroy]
 
+  def index
+    @post = Post.find(params[:post_id])
+    @comments = if params[:paginator_action] == 'hide'
+                  @post.comments.page(params[:page]).per(3)
+                else
+                  @post.comments
+                end
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def create
     @comment = current_user.comments.build(comment_params)
     if @comment.save
