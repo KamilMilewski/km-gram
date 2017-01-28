@@ -16,7 +16,7 @@ Documentation:
 
 # Block Length rule (max 25 lines in block) should not apply to declarative
 # pieces of code such as specs
-Style/BlockLength:
+Metrics/BlockLength:
   Exclude:
     - 'Rakefile'
     - '**/*.rake'

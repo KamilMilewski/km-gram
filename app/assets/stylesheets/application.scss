@@ -15,6 +15,10 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+ html {
+   height: 100%;
+ }
+
  body {
    background-color: #fafafa;
    font-family: proxima-nova, 'Helvetica Neue', Arial, Helvetica, sans-serif;
@@ -153,4 +157,36 @@
  .edit-links {
    margin-top: 20px;
    margin-bottom: 40px;
+ }
+
+ .registration-bg {
+   padding-top: 4em;
+   // Using 100vh instead of 100% means that the tag will be 100% height of the
+   // body regardless of the container tag height.
+   height: 100vh;
+   background-image: image-url('registration_bg.png');
+   -moz-background-size: cover;
+   -webkit-background-size: cover;
+   background-size: cover;
+ }
+
+ .log-in{
+    margin-left: auto;
+    margin-right: auto;
+    text-align:center;
+    border: none;
+  }
+
+ .panel { border-radius: 8px; }
+
+ .panel-heading{
+   h1 { text-align: center; }
+ }
+
+ .navbar {
+   margin-bottom: 0px;
+ }
+
+ .alert {
+   margin-bottom: 0px;
  }

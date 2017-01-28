@@ -7,7 +7,7 @@ feature 'Creating users' do
   end
 
   scenario 'can create new user via the index page' do
-    fill_in 'User name', with: 'newusername'
+    fill_in 'Name', with: 'newusername'
     fill_in 'Email', with: 'newusername@email.com'
     fill_in 'Password', with: 'supersecret', match: :first
     fill_in 'Password confirmation', with: 'supersecret'
@@ -24,7 +24,7 @@ feature 'Creating users' do
   end
 
   scenario 'requires a user name to have at least 4 characters' do
-    fill_in 'User name', with: 'h'
+    fill_in 'Name', with: 'h'
     fill_in 'Email', with: 'newusername@email.com'
     fill_in 'Password', with: 'supersecret', match: :first
     fill_in 'Password confirmation', with: 'supersecret'
@@ -33,7 +33,7 @@ feature 'Creating users' do
   end
 
   scenario 'requires a user name to have no more than 25 characters' do
-    fill_in 'User name', with: 'h' * 26
+    fill_in 'Name', with: 'h' * 26
     fill_in 'Email', with: 'newusername@email.com'
     fill_in 'Password', with: 'supersecret', match: :first
     fill_in 'Password confirmation', with: 'supersecret'

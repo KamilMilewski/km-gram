@@ -1,10 +1,7 @@
 !!!
 %html
-  = render 'layouts/header'
+  =render 'layouts/header'
   %body
-    = render 'layouts/navbar'
-    .container
-      -flash.each do |type, msg|
-        %div{class: "alert alert-#{type || 'info'}"}
-          = msg
-      = yield
+    =render 'layouts/navbar'
+    =render 'layouts/notifications'
+    =yield
