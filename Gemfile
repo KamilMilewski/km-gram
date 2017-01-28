@@ -25,6 +25,8 @@ gem 'simple_form'
 # For bootstrap
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails', '~> 5.0'
+# Paginatino
+gem 'kaminari'
 
 group :development, :test do
   gem 'byebug', platform: :mri

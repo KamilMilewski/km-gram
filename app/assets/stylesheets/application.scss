@@ -15,9 +15,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-html {
-  height: 100%;
-}
+html { height: 100%; }
 
 body {
   background-color: #fafafa;
@@ -27,9 +25,7 @@ body {
 /* ## NAVBAR CUSTOMISATIONS ## */
 
 .navbar-brand {
-  a {
-   color: #125688;
-  }
+  a { color: #125688; }
 }
 
 .navbar-default {
@@ -194,13 +190,9 @@ body {
  h1 { text-align: center; }
 }
 
-.navbar {
-  margin-bottom: 0px;
-}
+.navbar { margin-bottom: 0px; }
 
-.alert {
-  margin-bottom: 0px;
-}
+.alert { margin-bottom: 0px; }
 
 #image-preview {
   margin: 0px auto;
@@ -209,4 +201,32 @@ body {
 #post_image {
   padding: 1em;
   margin: 0px auto;
+}
+
+// Posts pagination
+#posts-paginator {
+  text-align: center;
+  color: #4090DB;
+  height: 120px;
+  width: 120px;
+  margin: 60px auto 40px;
+  position: relative;
+  display: table;
+  border: 2px solid #4090DB;
+  border-radius: 50%;
+  :hover {
+    border: 1px solid #2D6DA8;
+    border-radius: 50%;
+  }
+}
+
+#load_more_posts_link {
+  display: table-cell;
+  font-size: 12px;
+  padding: 0px 9px;
+  vertical-align: middle;
+  text-decoration: none;
+  a :hover {
+    color: #2D6DA8;
+  }
 }

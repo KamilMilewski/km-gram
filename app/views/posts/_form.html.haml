@@ -13,7 +13,9 @@
           .container-fluid
             .form-group.text-center
               %h4 Upload an image
-              =f.input :image, as: :file, label: false, input_html: { onChange: 'loadFile(event)' }
+              =f.input :image, as: :file,
+                               label_html: { class: "sr-only" },
+                               input_html: { onChange: 'loadFile(event)' }
             .form-group.text-center
               =f.input :caption, as: :string, placeholder: 'Your caption...'
             .form-group.text-center

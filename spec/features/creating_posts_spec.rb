@@ -8,7 +8,7 @@ feature 'Creating posts' do
   end
 
   scenario 'can create a post' do
-    attach_file('image', 'spec/files/images/kitten.png')
+    attach_file('post_image', 'spec/files/images/kitten.png')
     fill_in 'Caption', with: 'sweeeet #dżizas!!!'
     click_button 'Create Post'
     expect(page).to have_content('#dżizas!!!')

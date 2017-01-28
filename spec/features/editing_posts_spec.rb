@@ -20,7 +20,7 @@ feature 'Editing posts' do
   end
 
   it 'should not allow update post without picture' do
-    attach_file('image', 'spec/files/images/kitten.zip')
+    attach_file('post_image', 'spec/files/images/kitten.zip')
     click_button 'Update'
     expect(page).to have_content('Could not update post.')
   end
