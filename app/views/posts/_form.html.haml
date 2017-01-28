@@ -1,13 +1,20 @@
-/ form-horizontal, form-group and text-center are bootstrap classes
-.form-wrapper
-  =simple_form_for @post, html: { class: 'form-horizontal', multipart: true } do |f|
-    .form-group
-      .text-center.post-head Current Image
-      .image.center-block
-        =image_tag @post.image.url(:medium), class:'img-responsive'
-    .form-group
-      =f.input :image, as: :file, label: 'Upload image'
-    .form-group.text-center
-      =f.input :caption, as: :string
-    .form-group.text-center
-      =f.button :submit, class: 'btn-success'
+.posts-wrapper
+  .post
+    .post-body
+      .image-wrap
+        -if @post.image.exists?
+          =image_tag @post.image.url(:medium), id: 'image-preview', class: 'img-responsive'
+        -else
+          =image_tag 'placeholder.png', id: 'image-preview', class: 'img-responsive'
+        =simple_form_for @post, html: { multipart: true } do |f|
+          .row
+            .col-md-12.text-center
+              =f.error_notification
+          .container-fluid
+            .form-group.text-center
+              %h4 Upload an image
+              =f.input :image, as: :file, label: false, input_html: { onChange: 'loadFile(event)' }
+            .form-group.text-center
+              =f.input :caption, as: :string, placeholder: 'Your caption...'
+            .form-group.text-center
+              =f.button :submit, class: 'btn-success btn-block'
