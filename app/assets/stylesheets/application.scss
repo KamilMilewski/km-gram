@@ -170,6 +170,17 @@
    background-size: cover;
  }
 
+ .log-in-bg {
+   padding-top: 4em;
+   // Using 100vh instead of 100% means that the tag will be 100% height of the
+   // body regardless of the container tag height.
+   height: 100vh;
+   background-image: image-url('login_bg.png');
+   -moz-background-size: cover;
+   -webkit-background-size: cover;
+   background-size: cover;
+ }
+
  .log-in{
     margin-left: auto;
     margin-right: auto;
