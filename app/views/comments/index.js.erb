@@ -1,6 +1,8 @@
 $('#comments_<%= @post.id %>').html("<%=j render @comments %>");
 <% if(params[:paginator_action] == 'show') %>
-  $('#comments_paginator_link_<%= @post.id %>').replaceWith("<%=j link_to 'Hide', post_comments_path(@post, paginator_action: 'hide'), remote: true, id: "comments_paginator_link_#{@post.id}" %>");
+  $('#comments_paginator_link_<%= @post.id %>').
+  replaceWith("<%=j link_to 'Hide', post_comments_path(@post, paginator_action: 'hide'), remote: true, id: "comments_paginator_link_#{@post.id}" %>");
 <% else %>
-  $('#comments_paginator_link_<%= @post.id %>').replaceWith("<%=j link_to 'Show all', post_comments_path(@post, paginator_action: 'show'), remote: true, id: "comments_paginator_link_#{@post.id}" %>");
+  $('#comments_paginator_link_<%= @post.id %>').
+  replaceWith("<%=j link_to "Show all #{@post.comments.count} comments", post_comments_path(@post, paginator_action: 'show'), remote: true, id: "comments_paginator_link_#{@post.id}" %>");
 <% end %>

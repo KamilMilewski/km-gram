@@ -3,10 +3,10 @@ class CommentsController < ApplicationController
 
   def index
     @post = Post.find(params[:post_id])
-    @comments = if params[:paginator_action] == 'hide'
-                  @post.comments.page(params[:page]).per(3)
+    @comments = if params[:paginator_action] == 'show'
+                  @post.comments.order('created_at ASC')
                 else
-                  @post.comments
+                  @post.comments.order('created_at ASC').last(3)
                 end
     respond_to do |format|
       format.js
