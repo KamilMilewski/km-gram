@@ -13,10 +13,10 @@ feature 'editing user profiles' do
   scenario 'user can edit his own profile' do
     click_link @user.name
     click_link 'Edit Profile'
-    click_link 'Choose new profile image'
-    attach_file('avatar', 'spec/files/images/kitten.png')
+    expect(page).to have_content('Choose new profile image')
+    attach_file('user_avatar', 'spec/files/images/kitten_avatar.jpg')
     new_bio = "What's up bros?!"
-    fill_in 'bio', with: new_bio
+    fill_in 'user_bio', with: new_bio
     click_button 'Update Profile'
     expect(page.current_path).to eq(profile_path(@user.name))
     expect(page).to have_css("img[src*='kitten_avatar.jpg']")
@@ -29,7 +29,7 @@ feature 'editing user profiles' do
   end
 
   scenario 'user can not enter other user profile page directly via url' do
-    visit edit_user_path(@second_user)
+    visit edit_profile_path(@second_user.name)
     expect(page).to_not have_content 'Change your avatar:'
     expect(page.current_path).to eq(root_path)
     expect(page).to have_content("That profile dosen't belong to you!")

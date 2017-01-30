@@ -22,3 +22,6 @@
 
 # Ignore images uploaded by paperclip
 /public/system/posts/images/*
+
+# Ignore Dolphin .directory file
+/.directory

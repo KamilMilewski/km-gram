@@ -20,7 +20,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
     if @post.save
       flash[:success] = 'Post successfully created.'
-      redirect_to posts_path
+      redirect_to profile_path(current_user.name)
     else
       flash.now[:warning] = 'Could not create post.'
       render 'new'

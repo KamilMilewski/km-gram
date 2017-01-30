@@ -1,0 +1,25 @@
+.container
+  .posts-wrapper
+    .post
+      .post-body
+        .image-wrap
+          =form_for @user, url: { controller: 'profiles', action: 'update'}, html: { multipart: true } do |f|
+            .row
+              .col-md-12
+                .form-group.text-center
+                  %h3.text-center Choose new profile image:
+                  -if @user.avatar.exists?
+                    =image_tag @user.avatar.url(:medium), id: 'avatar-preview', class: 'img-responsive'
+                  -else
+                    =image_tag 'default_avatar.png', id: 'avatar-preview', class: 'img-responsive'
+            .row
+              .col-md-4.col-md-offset-4
+                .form-group
+                  =f.file_field :avatar, onChange: 'loadFile(event)'
+            .row
+              .col-md-10.col-md-offset-1
+                .form-group.text-center
+                  %h4 Update your bio:
+                  =f.text_area :bio, label: false, rows: 4, class: 'form-control'
+            .form-group.text-center
+              =f.submit 'Update Profile', class: 'btn btn-success'
