@@ -12,7 +12,7 @@
     .post-bottom
       .caption
         .user-name
-          =post.user.name
+          =link_to post.user.name, profile_path(post.user.name)
         =post.caption
       / Comments:
       .comments{id: "comments_#{post.id}"}

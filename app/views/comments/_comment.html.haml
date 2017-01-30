@@ -1,6 +1,6 @@
 .comment{ id: "comment_#{comment.id}"}
   .user-name
-    =comment.user.name
+    =link_to comment.user.name, profile_path(comment.user.name)
   .comment-content
     =comment.content
   -if current_user.id == comment.user_id

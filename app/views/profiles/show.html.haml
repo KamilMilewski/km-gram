@@ -10,10 +10,8 @@
           =@user.name
         %h3
           =@user.bio
-    .text-center
-      -if current_user.id == @user.id
-        =link_to 'Edit Profile', edit_profile_path(@user.name), class: 'btn edit-button'
-    .posts-wrapper.row#posts
-      =render @posts
-    #posts-paginator
-      =link_to_next_page @posts, 'LOAD MORE', remote: true, id: 'load_more_posts_link'
+        -if current_user.id == @user.id
+          =link_to 'Edit Profile', edit_profile_path(@user.name), class: 'btn edit-button'
+      .posts-wrapper.row#posts
+        =render @posts
+      =render 'posts/posts_paginator'

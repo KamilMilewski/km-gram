@@ -8,7 +8,7 @@ feature 'show user profile' do
     @second_post = create(:post, user_id: @second_user.id)
     log_in @user
     visit '/'
-    click_link @post.user.name
+    first(:link, @post.user.name).click
   end
 
   scenario 'show user profile page has user name in the url' do

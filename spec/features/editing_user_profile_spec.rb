@@ -11,7 +11,7 @@ feature 'editing user profiles' do
   end
 
   scenario 'user can edit his own profile' do
-    click_link @user.name
+    first(:link, @user.name).click
     click_link 'Edit Profile'
     expect(page).to have_content('Choose new profile image')
     attach_file('user_avatar', 'spec/files/images/kitten_avatar.jpg')
@@ -24,7 +24,7 @@ feature 'editing user profiles' do
   end
 
   scenario 'user can not edit others user profile' do
-    click_link @second_user.name
+    first(:link, @second_user.name).click
     expect(page).to_not have_content('Edit Profile')
   end
 
