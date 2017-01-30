@@ -14,18 +14,26 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Cookie');
 
 html { height: 100%; }
 
 body {
   background-color: #fafafa;
   font-family: proxima-nova, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  a {
+    color: gray;
+    &:link { text-decoration: none; }
+    &:hover { text-decoration: none; }
+    &:active { text-decoration: none; }
+    &:visited { text-decoration: none; }
+  }
 }
 
 /* ## NAVBAR CUSTOMISATIONS ## */
 
 .navbar-brand {
-  a { color: #125688; }
+  a { color: #125688; font-family: 'Cookie', cursive; font-size: 35px}
 }
 
 .navbar-default {
