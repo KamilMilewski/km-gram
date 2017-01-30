@@ -2,13 +2,13 @@ require 'rails_helper'
 
 feature 'deleting comments' do
   background do
-    user       = FactoryGirl.create(:user)
-    other_user = FactoryGirl.create(:user)
-    post = FactoryGirl.create(:post, user_id: other_user.id)
-    @comment         = FactoryGirl.create(:comment, post_id: post.id,
-                                                    user_id: user.id)
-    @foreign_comment = FactoryGirl.create(:comment, post_id: post.id,
-                                                    user_id: other_user.id)
+    user       = create(:user)
+    other_user = create(:user)
+    post = create(:post, user_id: other_user.id)
+    @comment         = create(:comment, post_id: post.id,
+                                        user_id: user.id)
+    @foreign_comment = create(:comment, post_id: post.id,
+                                        user_id: other_user.id)
     log_in user
   end
 

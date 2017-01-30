@@ -3,7 +3,7 @@
     .post-head
       .thumb-img
       .user-name
-        =post.user.name
+        =link_to post.user.name, profile_path(post.user.name)
       .time-ago
         =time_ago_in_words post.created_at
     .image.center-block

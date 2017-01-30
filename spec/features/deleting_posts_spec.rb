@@ -2,9 +2,9 @@ require 'rails_helper'
 
 feature 'Deleting posts' do
   background do
-    user = FactoryGirl.create(:user)
+    user = create(:user)
     log_in user
-    post = FactoryGirl.create(:post, user_id: user.id)
+    post = create(:post, user_id: user.id)
     visit '/'
     # click on the image to 'show' the individual post
     find(:xpath, "//a[contains(@href, 'posts/#{post.id}')]").click

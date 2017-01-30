@@ -2,8 +2,8 @@ require 'rails_helper.rb'
 
 feature 'Creating comments' do
   background do
-    user = FactoryGirl.create(:user)
-    @post = FactoryGirl.create(:post, user_id: user.id)
+    user = create(:user)
+    @post = create(:post, user_id: user.id)
     log_in user
     visit '/'
   end

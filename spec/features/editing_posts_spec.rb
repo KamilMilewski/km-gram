@@ -2,9 +2,9 @@ require 'rails_helper.rb'
 
 feature 'Editing posts' do
   background do
-    user = FactoryGirl.create(:user)
+    user = create(:user)
     log_in user
-    post = FactoryGirl.create(:post, user_id: user.id)
+    post = create(:post, user_id: user.id)
     visit '/'
     # click on the image to 'show' the individual post
     find(:xpath, "//a[contains(@href, 'posts/#{post.id}')]").click
@@ -26,15 +26,15 @@ feature 'Editing posts' do
   end
 
   it 'should not allow edit foreign post via the show page' do
-    foreign_user = FactoryGirl.create(:user)
-    foreign_post = FactoryGirl.create(:post, user_id: foreign_user.id)
+    foreign_user = create(:user)
+    foreign_post = create(:post, user_id: foreign_user.id)
     visit post_path(foreign_post)
     expect(page).to_not have_content('edit')
   end
 
   it 'should not allow edit foreign post via url' do
-    foreign_user = FactoryGirl.create(:user)
-    foreign_post = FactoryGirl.create(:post, user_id: foreign_user.id)
+    foreign_user = create(:user)
+    foreign_post = create(:post, user_id: foreign_user.id)
     visit edit_post_path(foreign_post)
     expect(page).to have_content("That post dosen't belong to you!")
   end

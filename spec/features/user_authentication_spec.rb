@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'User authentication' do
   background do
-    @user = FactoryGirl.create(:user)
+    @user = create(:user)
   end
 
   scenario 'can log in from the index via dynamic navbar' do

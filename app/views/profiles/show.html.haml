@@ -1,0 +1,8 @@
+.container
+  %h2.user-name.text-center
+    =@user.name
+  .text-center
+    -if current_user.id == @user.id
+      =link_to 'Edit Profile', edit_profile_path(@user.name)
+  .posts-wrapper.row#posts
+    =render @posts

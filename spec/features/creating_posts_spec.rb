@@ -2,7 +2,7 @@ require 'rails_helper.rb'
 
 feature 'Creating posts' do
   background do
-    @user = FactoryGirl.create(:user)
+    @user = create(:user)
     log_in @user
     click_link 'New Post'
   end
