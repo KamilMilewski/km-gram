@@ -23,6 +23,7 @@
                  remote: true, id: "comments_paginator_link_#{post.id}"
     .comment-like-form.row
       .like-button.col-sm-1
-        %span(class="glyphicon glyphicon-heart-empty")
+        =link_to '#', id: "like-button-#{post.id}" do
+          %span(class="glyphicon glyphicon-heart-empty")
       .comment-form.col-sm-11
         =render 'comments/form', post: post
