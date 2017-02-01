@@ -15,4 +15,8 @@ Rails.application.routes.draw do
     resources :comments
   end
   resources :comments, only: [:destroy]
+
+  # Voting system:
+  patch ':id/like', to: 'posts#like', as: :like_post
+  patch ':id/unlike', to: 'posts#unlike', as: :unlike_post
 end

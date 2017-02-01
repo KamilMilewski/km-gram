@@ -10,7 +10,7 @@ feature 'Liking ones posts' do
 
   scenario 'can like a post' do
     click_link "like-button-#{@post.id}"
-    expect(page).to have_css('a.liked-post')
+    expect(page).to have_css('a.likes-post')
     # Expect to see my name within the "liked by" area of the post.
     within('div.liked-by') do
       expect(page).to have_content(@user.name)
@@ -19,7 +19,7 @@ feature 'Liking ones posts' do
 
   scenario 'can unlike a post' do
     click_link "like-button-#{@post.id}"
-    expect(page).to have_css('a.liked-post')
+    expect(page).to have_css('a.likes-post')
     # Expect to see my name within the "liked by" area of the post.
     within('div.liked-by') do
       expect(page).to have_content(@user.name)

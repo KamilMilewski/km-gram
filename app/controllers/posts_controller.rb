@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-  before_action :find_post, only: [:show, :edit, :update, :destroy]
+  before_action :find_post, only: [:show, :edit, :update, :destroy, :like,
+                                   :unlike]
   before_action :authenticate_user!
   before_action :redirect_if_not_owner, only: [:edit, :update, :destroy]
 
@@ -50,6 +51,22 @@ class PostsController < ApplicationController
     else
       flash.now[:warning] = 'Could not delete post.'
       render edit
+    end
+  end
+
+  def like
+    @post.liked_by current_user
+    respond_to do |format|
+      format.html { redirect_back fallback_location: root_url }
+      format.js
+    end
+  end
+
+  def unlike
+    @post.unliked_by current_user
+    respond_to do |format|
+      format.html { redirect_back fallback_location: root_url }
+      format.js
     end
   end
 

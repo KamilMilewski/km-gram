@@ -1,0 +1,2 @@
+$('#like-button-<%= @post.id %>').replaceWith("<%=j render 'like_button', post: @post %>");
+$('#liked-by-<%= @post.id %>').html("<%=j render 'voters', post: @post %>");

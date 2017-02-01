@@ -1,5 +1,6 @@
 # :nodoc:
 class Post < ApplicationRecord
+  acts_as_votable
   validates :user_id, presence: true
   validates :image, presence: true
   # 640x - images are resizing ewery image to 640px wide. But there is no limit

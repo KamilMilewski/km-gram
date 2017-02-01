@@ -256,3 +256,15 @@ body {
   border-color: #818488;
   color: #818488;
 }
+
+// voting
+.unlikes-post {
+
+}
+.likes-post {
+  span { color: red; }
+}
+
+.voters-wrapper {
+  margin-bottom: 10px;
+}

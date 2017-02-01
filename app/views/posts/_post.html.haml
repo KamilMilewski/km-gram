@@ -23,7 +23,11 @@
                  remote: true, id: "comments_paginator_link_#{post.id}"
     .comment-like-form.row
       .like-button.col-sm-1
-        =link_to '#', id: "like-button-#{post.id}" do
-          %span(class="glyphicon glyphicon-heart-empty")
+        -if current_user.voted_for? post
+          =render 'posts/unlike_button', post: post
+        -else
+          =render 'posts/like_button', post: post
       .comment-form.col-sm-11
+        .liked-by{id: "liked-by-#{post.id}"}
+          =render 'posts/voters', post: post
         =render 'comments/form', post: post
