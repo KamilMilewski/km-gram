@@ -22,11 +22,13 @@
         =link_to "Show all #{comments_count} comments", post_comments_path(post, paginator_action: 'show'),
                  remote: true, id: "comments_paginator_link_#{post.id}"
     .comment-like-form.row
-      .like-button.col-sm-1
+      .like-button.col-sm-1.text-center
         -if current_user.voted_for? post
           =render 'posts/unlike_button', post: post
         -else
           =render 'posts/like_button', post: post
+        .likes-count.text-center{id: "likes-count-#{post.id}"}
+          =post.votes_for.up.by_type('User').voters.count
       .comment-form.col-sm-11
         .liked-by{id: "liked-by-#{post.id}"}
           =render 'posts/voters', post: post

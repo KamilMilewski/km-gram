@@ -1,2 +1,3 @@
 $('#like-button-<%= @post.id %>').replaceWith("<%=j render 'unlike_button', post: @post %>");
 $('#liked-by-<%= @post.id %>').html("<%=j render 'voters', post: @post %>");
+$('#likes-count-<%= @post.id %>').html("<%=j "#{@post.votes_for.up.by_type('User').voters.count}" %>");
