@@ -1,5 +1,0 @@
--if post.votes_for.up.by_type('User').voters.count != 0
-  .voters-wrapper
-    = "Liked by: "
-    -post.votes_for.up.by_type('User').voters.each do |voter|
-      =link_to voter.name, profile_path(voter.name)

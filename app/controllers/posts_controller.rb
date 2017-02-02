@@ -56,18 +56,12 @@ class PostsController < ApplicationController
 
   def like
     @post.liked_by current_user
-    respond_to do |format|
-      format.html { redirect_back fallback_location: root_url }
-      format.js
-    end
+    respond_to_vote
   end
 
   def unlike
     @post.unliked_by current_user
-    respond_to do |format|
-      format.html { redirect_back fallback_location: root_url }
-      format.js
-    end
+    respond_to_vote
   end
 
   private
@@ -84,5 +78,12 @@ class PostsController < ApplicationController
     return unless current_user.id != @post.user_id
     flash[:danger] = "That post dosen't belong to you!"
     redirect_to root_path
+  end
+
+  def respond_to_vote
+    respond_to do |format|
+      format.html { redirect_back fallback_location: root_url }
+      format.js
+    end
   end
 end

@@ -1,23 +1,8 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- */
-
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import url('https://fonts.googleapis.com/css?family=Cookie');
 
 html { height: 100%; }
-
 body {
   background-color: #fafafa;
   font-family: proxima-nova, 'Helvetica Neue', Arial, Helvetica, sans-serif;
@@ -30,31 +15,16 @@ body {
   }
 }
 
-/* ## NAVBAR CUSTOMISATIONS ## */
+.brand { color: #125688; font-family: 'Cookie', cursive; font-size: 40px }
 
-.navbar-brand {
-  a { color: #125688; font-family: 'Cookie', cursive; font-size: 35px}
+/* navbar */
+.navbar-brand a { color: #125688; font-family: 'Cookie', cursive; font-size: 35px}
+.navbar-link { font-size: 15px; font-weight: bold;}
+.navbar-default { background-color: #fff; height: 54px;
+  .navbar-nav li a { color: #125688; }
 }
-.brand {
-  color: #125688; font-family: 'Cookie', cursive; font-size: 40px
-}
-.navbar-link {
-  font-size: 15px;
-  font-weight: bold;
-}
-
-.navbar-default {
-  background-color: #fff;
-  height: 54px;
-  .navbar-nav li a {
-   color: #125688;
-  }
-}
-
-.navbar-container {
-  width: 70%;
-  margin: 0 auto;
-}
+.navbar-container { width: 70%; margin: 0 auto; }
+.navbar { margin-bottom: 0px; }
 
 /* ## POST CUSTOMISATIONS ## */
 
@@ -165,58 +135,27 @@ body {
   border-radius: 3px;
 }
 
-.edit-links {
-  margin-top: 20px;
-  margin-bottom: 40px;
-}
-
-.registration-bg {
+.edit-links { margin-top: 20px; margin-bottom: 40px; }
+.form-bg {
   padding-top: 4em;
   // Using 100vh instead of 100% means that the tag will be 100% height of the
   // body regardless of the container tag height.
   height: 100vh;
-  background-image: image-url('registration_bg.png');
   -moz-background-size: cover;
   -webkit-background-size: cover;
   background-size: cover;
 }
-
-.log-in-bg {
-  padding-top: 4em;
-  // Using 100vh instead of 100% means that the tag will be 100% height of the
-  // body regardless of the container tag height.
-  height: 100vh;
-  background-image: image-url('login_bg.png');
-  -moz-background-size: cover;
-  -webkit-background-size: cover;
-  background-size: cover;
-}
-
-.log-in{
-  margin-left: auto;
-  margin-right: auto;
-  text-align:center;
-  border: none;
-}
-
+.registration-bg { @extend .form-bg; background-image: image-url('registration_bg.png'); }
+.log-in-bg       { @extend .form-bg; background-image: image-url('login_bg.png'); }
+.log-in{ margin-left: auto; margin-right: auto; text-align:center; border: none; }
 .panel { border-radius: 8px; }
-
-.panel-heading{
- h1 { text-align: center; }
-}
-
-.navbar { margin-bottom: 0px; }
+.panel-heading h1 { text-align: center; }
 
 .alert { margin-bottom: 0px; }
 
-#image-preview {
-  margin: 0px auto;
-}
+#image-preview { margin: 0px auto; }
 
-#post_image {
-  padding: 1em;
-  margin: 0px auto;
-}
+#post_image { padding: 1em; margin: 0px auto; }
 
 // Posts pagination
 #posts-paginator {
@@ -241,30 +180,13 @@ body {
   padding: 0px 9px;
   vertical-align: middle;
   text-decoration: none;
-  a :hover {
-    color: #2D6DA8;
-  }
+  a :hover { color: #2D6DA8; }
 }
 
 // Edit profile page
-#avatar-preview {
-  margin: 20px auto;
-  border-radius: 50%;
-}
-
-.edit-button {
-  border-color: #818488;
-  color: #818488;
-}
-
+#avatar-preview { margin: 20px auto; border-radius: 50%; }
+.edit-button { border-color: #818488; color: #818488; }
 // voting
-.unlikes-post {
-
-}
-.likes-post {
-  span { color: red; }
-}
-
-.voters-wrapper {
-  margin-bottom: 10px;
-}
+.unlikes-post { }
+.likes-post span { color: red; }
+.liked-by { padding-bottom: 10px; }
