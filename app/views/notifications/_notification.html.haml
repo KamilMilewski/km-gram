@@ -5,3 +5,9 @@
         =notification.notified_by.name
       =notification.notice_type + 'ed your'
       =link_to ' post', link_through_path(notification)
+      -if notification.read
+        =link_to toggle_notification_path(notification), remote: true do
+          %span.glyphicon.glyphicon-eye-close{ title: 'mark as unread' }
+      -else
+        =link_to toggle_notification_path(notification), remote: true do
+          %span.glyphicon.glyphicon-eye-open{ title: 'mark as read' }

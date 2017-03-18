@@ -11,4 +11,14 @@ class NotificationsController < ApplicationController
     @notification.update read: true
     redirect_to post_path @notification.post
   end
+
+  def toggle_read
+    @notification = Notification.find(params[:id])
+    @notification.read = !@notification.read
+    @notification.save
+    respond_to do |format|
+      format.html { redirect_back fallback_location: root_url }
+      format.js
+    end
+  end
 end

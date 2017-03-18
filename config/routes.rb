@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   get 'notifications/:id/link_through', to: 'notifications#link_through',
       as: :link_through
   get :notifications, to: 'notifications#index'
+  get 'toggle_notification/:id', to: 'notifications#toggle_read',
+      as: :toggle_notification
 
   get 'profiles/show'
 
