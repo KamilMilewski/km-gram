@@ -7,3 +7,9 @@
       =link_to ' post', link_through_path(notification)
       =time_ago_in_words(notification.created_at)
       ago
+      -if notification.read
+        =link_to toggle_notification_path(notification, dropdown: 'false'), remote: true do
+          %span.glyphicon.glyphicon-eye-close{ title: 'mark as unread' }
+      -else
+        =link_to toggle_notification_path(notification, dropdown: 'false'), remote: true do
+          %span.glyphicon.glyphicon-eye-open{ title: 'mark as read' }

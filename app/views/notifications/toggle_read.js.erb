@@ -1,2 +1,6 @@
 $('#notification-dropdown').html("<%=j render 'notification_dropdown' %>");
-$('.notification-dropdown').addClass('open');
+<% if @dropdown == 'true' %>
+  $('.notification-dropdown').addClass('open');
+<% end %>
+$('#unread-notifications-index').html("<%=j render partial: 'notification_for_index', collection: @unread_notifications, as: :notification %>")
+$('#read-notifications-index').html("<%=j render partial: 'notification_for_index', collection: @read_notifications, as: :notification %>")
