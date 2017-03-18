@@ -3,10 +3,14 @@
     .col-md-6.col-md-offset-3
       %h5 Unread notifications
       %ul
-        =render @unread_notifications
+        =render partial: 'notification_for_index',
+                collection: @unread_notifications,
+                as: :notification
       =paginate @unread_notifications, param_name: :unread_page
 
       %h5 Read notifications
       %ul
-        =render @read_notifications
+        =render partial: 'notification_for_index',
+                collection: @read_notifications,
+                as: :notification
       =paginate @read_notifications, param_name: :read_page

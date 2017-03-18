@@ -5,3 +5,5 @@
         =notification.notified_by.name
       =notification.notice_type + 'ed your'
       =link_to ' post', link_through_path(notification)
+      =time_ago_in_words(notification.created_at)
+      ago
