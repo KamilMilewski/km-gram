@@ -1,11 +1,7 @@
 %li
   %p
-    =link_to link_through_path(notification) do
-      -if notification.notice_type == 'comment'
-        comment
-      -elsif notification.notice_type == 'like'
-        like
     %span
-      by
       =link_to profile_path(notification.notified_by.name) do
         =notification.notified_by.name
+      =notification.notice_type + 'ed your'
+      =link_to ' post', link_through_path(notification)

@@ -9,10 +9,13 @@
       %ul.unread-notifications
         %li.notifications-header
           Unread notifications
-        =render unread_notifications
+        =render unread_notifications.last 5
     %li.divider{role: 'separator'}
     %li
       %ul.read-notifications
         %li.notifications-header
           Read notifications
-        =render read_notifications
+        =render read_notifications.last 5
+    %li.divider{role: 'separator'}
+    %li.view-all-notifications
+      =link_to 'View all', notifications_path

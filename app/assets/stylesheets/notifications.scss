@@ -22,3 +22,21 @@
 .navbar-default .navbar-nav .read-notifications li a {
   color: gray;
 }
+.navbar-default .navbar-nav .view-all-notifications a {
+  color: gray;
+  text-align: center;
+}
+
+.notifications-index-wrapper {
+  text-align: center;
+  margin-top: 5em;
+  li {
+    list-style-type: none;
+    margin-top: 1em;
+    background-color: white;
+    padding: 1em;
+  }
+  h5 {
+    text-align: center;
+  }
+}
