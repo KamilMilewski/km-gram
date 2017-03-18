@@ -3,7 +3,7 @@
     %span
       =link_to profile_path(notification.notified_by.name) do
         =notification.notified_by.name
-      =notification.notice_type + 'ed your'
+      =notification.notice_type + (notification.notice_type == 'comment' ? 'ed' : 'd')
       =link_to ' post', link_through_path(notification)
       -if notification.read
         =link_to toggle_notification_path(notification, dropdown: 'true'), remote: true do

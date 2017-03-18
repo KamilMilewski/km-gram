@@ -3,8 +3,8 @@
     %span
       =link_to profile_path(notification.notified_by.name) do
         =notification.notified_by.name
-      =notification.notice_type + 'ed your'
-      =link_to ' post', link_through_path(notification)
+      =notification.notice_type + (notification.notice_type == 'comment' ? 'ed' : 'd')
+      =link_to 'your post', link_through_path(notification)
       =time_ago_in_words(notification.created_at)
       ago
       -if notification.read

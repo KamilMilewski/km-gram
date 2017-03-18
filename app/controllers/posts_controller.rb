@@ -56,6 +56,7 @@ class PostsController < ApplicationController
 
   def like
     @post.liked_by current_user
+    create_notification(@post)
     respond_to_vote
   end
 
@@ -78,6 +79,15 @@ class PostsController < ApplicationController
     return unless current_user.id != @post.user_id
     flash[:danger] = "That post dosen't belong to you!"
     redirect_to root_path
+  end
+
+  def create_notification(post)
+    return if current_user == post.user
+    Notification.create!(post: post,
+                         notified_by: current_user,
+                         user: post.user,
+                         notice_type: 'like',
+                         identifier: post.id)
   end
 
   def respond_to_vote
