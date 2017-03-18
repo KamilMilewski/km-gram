@@ -1,3 +1,14 @@
+.notification-dropdown {
+  .dropdown-menu {
+    padding-left: 5px;
+    padding-right: 5px;  
+  }
+  margin-top: 10px;
+  button {
+    border: none;
+  }
+}
+
 .notifications {
   list-style-type: none;
   text-align: center;
