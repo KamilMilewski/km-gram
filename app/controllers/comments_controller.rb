@@ -16,6 +16,7 @@ class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.build(comment_params)
     if @comment.save
+      create_notification @comment, @comment.post
       respond
     else
       flash[:danger] = 'Could not create comment.'
@@ -50,5 +51,14 @@ class CommentsController < ApplicationController
       format.html { redirect_back fallback_location: root_url }
       format.js
     end
+  end
+
+  def create_notification(comment, post)
+    return if current_user == post.user
+    Notification.create!(post: post,
+                         notified_by: current_user,
+                         user: post.user,
+                         notice_type: 'comment',
+                         identifier: comment.id)
   end
 end

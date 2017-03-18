@@ -9,6 +9,7 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :notifications, dependent: :destroy
 
   has_attached_file :avatar, styles: { medium: '150x150', thumb: '70x70' },
                              default_url: '/images/:style/default_avatar.png'
