@@ -1,6 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import url('https://fonts.googleapis.com/css?family=Cookie');
+@import "notifications";
 
 html { height: 100%; }
 body {
@@ -190,3 +191,10 @@ body {
 .unlikes-post { }
 .likes-post span { color: red; }
 .liked-by { padding-bottom: 10px; }
+
+.notification-dropdown {
+  margin-top: 10px;
+  button {
+    border: none;
+  }
+}

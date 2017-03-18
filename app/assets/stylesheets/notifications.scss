@@ -1,0 +1,24 @@
+.notifications {
+  list-style-type: none;
+  text-align: center;
+  padding-left: 0px;
+}
+.unread-notifications {
+  @extend .notifications;
+  background-color: #e8e1be;
+}
+.read-notifications {
+  @extend .notifications;
+}
+
+.notifications-header {
+  text-align: center;
+  font-weight: bold;
+}
+
+.navbar-default .navbar-nav .unread-notifications li a {
+  color: gray;
+}
+.navbar-default .navbar-nav .read-notifications li a {
+  color: gray;
+}

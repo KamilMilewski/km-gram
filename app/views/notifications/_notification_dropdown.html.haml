@@ -1,0 +1,18 @@
+.dropdown.notification-dropdown
+  %button.btn.btn-default.dropdown-toggle{ type: 'button', id: 'dropdownMenu1', data: { toggle: 'dropdown' }, 'aria-haspopup': true, 'aria-expanded': true }
+    -unread_notifications = current_user.notifications.unread
+    -read_notifications = current_user.notifications.read
+    =unread_notifications.count
+    %span.glyphicon.glyphicon-flag
+  %ul.dropdown-menu{ 'aria-labelledby': 'dropdownMenu1' }
+    %li
+      %ul.unread-notifications
+        %li.notifications-header
+          Unread notifications
+        =render unread_notifications
+    %li.divider{role: 'separator'}
+    %li
+      %ul.read-notifications
+        %li.notifications-header
+          Read notifications
+        =render read_notifications
