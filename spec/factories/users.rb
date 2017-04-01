@@ -4,5 +4,6 @@ FactoryGirl.define do
     sequence(:email) { |n| "factory@user#{n}.com" }
     password 'supersecret'
     sequence(:id) { |n| n }
+    sequence(:bio) { |n| "bio #{n}" }
   end
 end

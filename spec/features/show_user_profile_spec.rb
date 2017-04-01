@@ -11,7 +11,7 @@ feature 'show user profile' do
     first(:link, @post.user.name).click
   end
 
-  scenario 'show user profile page has user name in the url' do
+  scenario 'user profile page has user name in the url' do
     expect(page.current_path).to eq(profile_path(@user.name))
   end
 
@@ -20,5 +20,12 @@ feature 'show user profile' do
     expect(page).to have_content(@post.caption)
     expect(page).to_not have_content(@second_post.user.name)
     expect(page).to_not have_content(@second_post.caption)
+  end
+
+  scenario 'user profile page has user related info' do
+    expect(page).to have_content(@user.name)
+    expect(page).to have_content(@user.bio)
+    expect(page).to have_css('div.followers-count', text: "#{@user.followers.count}")
+    expect(page).to have_css('div.following-count', text: "#{@user.following.count}")
   end
 end
