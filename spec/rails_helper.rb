@@ -5,6 +5,8 @@ require File.expand_path('../../config/environment', __FILE__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'spec_helper'
 require 'rspec/rails'
+require 'devise'
+require 'support/controller_macros'
 require 'capybara/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -27,9 +29,15 @@ require 'capybara/rails'
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
 
+# Required by Devise for controller specs
+RSpec.configure do |config|
+  config.include Devise::Test::ControllerHelpers, :type => :controller
+  config.extend ControllerMacros, :type => :controller
+end
+
 module AuthHelpers
   def log_in(user = FactoryGirl.create(:user))
-    visit '/'
+    visit 'browse'
     click_link 'Log in'
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password

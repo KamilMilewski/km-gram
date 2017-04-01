@@ -2,7 +2,7 @@ require 'rails_helper.rb'
 
 feature 'Creating users' do
   background do
-    visit '/'
+    visit 'browse'
     click_link 'Register'
   end
 

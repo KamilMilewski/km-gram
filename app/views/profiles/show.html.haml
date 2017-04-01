@@ -12,6 +12,8 @@
           =@user.bio
         -if current_user.id == @user.id
           =link_to 'Edit Profile', edit_profile_path(@user.name), class: 'btn edit-button'
+        -else
+          =render 'follow_btn'
       .posts-wrapper.row#posts
         =render @posts
       =render 'posts/posts_paginator'

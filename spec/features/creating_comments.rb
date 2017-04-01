@@ -5,7 +5,7 @@ feature 'Creating comments' do
     user = create(:user)
     @post = create(:post, user_id: user.id)
     log_in user
-    visit '/'
+    visit 'browse'
   end
 
   scenario 'can create comment' do

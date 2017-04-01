@@ -5,7 +5,7 @@ feature 'Deleting posts' do
     user = create(:user)
     log_in user
     post = create(:post, user_id: user.id)
-    visit '/'
+    visit 'browse'
     # click on the image to 'show' the individual post
     find(:xpath, "//a[contains(@href, 'posts/#{post.id}')]").click
     click_link 'edit'

@@ -7,7 +7,7 @@ feature 'editing user profiles' do
     @second_user = create(:user)
     @second_post = create(:post, user_id: @second_user.id)
     log_in @user
-    visit '/'
+    visit 'browse'
   end
 
   scenario 'user can edit his own profile' do

@@ -7,7 +7,7 @@ feature 'show user profile' do
     @second_user = create(:user)
     @second_post = create(:post, user_id: @second_user.id)
     log_in @user
-    visit '/'
+    visit 'browse'
     first(:link, @post.user.name).click
   end
 

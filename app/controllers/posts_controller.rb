@@ -4,9 +4,21 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :redirect_if_not_owner, only: [:edit, :update, :destroy]
 
-  def index
+  # To browse all posts
+  def browse
     @comment = Comment.new
     @posts = Post.all.order('created_at DESC').page(params[:page]).per(3)
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
+  # To browse posts created by users that current user follows
+  def index
+    @comment = Comment.new
+    @posts = Post.of_followed_users(current_user.following)
+                 .order('created_at DESC').page(params[:page]).per(3)
     respond_to do |format|
       format.html
       format.js

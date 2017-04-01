@@ -13,19 +13,19 @@ feature 'deleting comments' do
   end
 
   scenario 'user can delete his own comments' do
-    visit '/'
+    visit 'browse'
     click_link "delete-#{@comment.id}"
     expect(page).to_not have_content(@comment.content)
   end
 
   it 'should not allow delete foreign comment via page' do
-    visit '/'
+    visit '/browse'
     expect(page).to have_content(@foreign_comment.content)
     expect(page).to_not have_css "#delete-#{@foreign_comment.id}"
   end
 
   it 'should not allow delete foreign comment via DELETE request' do
-    visit '/'
+    visit '/browse'
     expect(page).to have_content(@foreign_comment.content)
     page.driver.submit :delete, comment_path(@foreign_comment), {}
     expect(page).to have_content("You can't delete foreign comments.")

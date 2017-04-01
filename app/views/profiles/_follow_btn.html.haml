@@ -1,0 +1,7 @@
+.follow-btn-section
+  -if current_user.following.exists?(@user)
+    =link_to 'Unfollow', unfollow_user_path(@user.name), remote: true,
+     class: 'btn unfollow-button', id: 'unfollow-button', method: :post
+  -else
+    =link_to 'Follow', follow_user_path(@user.name), remote: true,
+    class: 'btn follow-button', id: 'follow-button', method: :post

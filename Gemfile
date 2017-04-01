@@ -30,7 +30,9 @@ gem 'sass-rails', '~> 5.0'
 gem 'kaminari'
 
 group :development, :test do
-  gem 'byebug', platform: :mri
+  gem 'pry'
+  gem 'pry-nav'
+  # gem 'byebug', platform: :mri
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'rspec-rails', '~> 3.5'
@@ -45,6 +47,10 @@ group :development do
   gem 'rubocop'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+group :test do
+  gem 'rails-controller-testing'
 end
 
 group :production do

@@ -10,7 +10,7 @@ feature 'index display list of posts' do
     post1 = create(:post, caption: '#caption 1', user_id: @user.id)
     post2 = create(:post, caption: '#caption 2', user_id: @user.id)
     post3 = create(:post, caption: '#caption 3', user_id: @user.id)
-    visit '/'
+    visit 'browse'
     # User can see the comments and images of the posts we have created.
     expect(page).to have_content(post1.caption)
     expect(page).to have_content(post2.caption)
@@ -20,7 +20,7 @@ feature 'index display list of posts' do
 
   it 'should redirect to post show page upon clicking post image' do
     post = create(:post, user_id: @user.id)
-    visit '/'
+    visit 'browse'
     # click on an image link
     find(:xpath, "//a[contains(@href, 'posts/#{post.id}')]").click
     # expect to be taken to the show page of our post

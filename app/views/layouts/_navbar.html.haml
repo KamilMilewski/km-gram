@@ -16,6 +16,8 @@
           %li#notification-dropdown
             =render 'notifications/notification_dropdown'
           %li
+            =link_to 'Browse', posts_browse_path, class: 'navbar-link'
+          %li
             =link_to 'New Post', new_post_path, class: 'navbar-link'
           %li
             =link_to 'Logout', destroy_user_session_path, method: :delete, class: 'navbar-link'

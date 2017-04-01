@@ -6,7 +6,7 @@ feature 'User authentication' do
   end
 
   scenario 'can log in from the index via dynamic navbar' do
-    visit '/'
+    visit 'browse'
     expect(page).to_not have_content('New post')
     click_link 'Log in'
     fill_in 'Email', with: @user.email
@@ -19,7 +19,7 @@ feature 'User authentication' do
   end
 
   scenario 'can log out once logged in' do
-    visit '/'
+    visit 'browse'
     click_link 'Log in'
     fill_in 'Email', with: @user.email
     fill_in 'Password', with: @user.password
@@ -31,7 +31,7 @@ feature 'User authentication' do
   end
 
   scenario 'cannot view index posts without logging in' do
-    visit '/'
+    visit 'browse'
     expect(page).to have_content('You need to sign in or sign up before
     continuing.')
   end
