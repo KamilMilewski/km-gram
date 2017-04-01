@@ -17,8 +17,12 @@ class PostsController < ApplicationController
   # To browse posts created by users that current user follows
   def index
     @comment = Comment.new
-    @posts = Post.of_followed_users(current_user.following)
-                 .order('created_at DESC').page(params[:page]).per(3)
+    # @user_posts = current_user.posts.order('created_at DESC')
+    # @following_posts = Post.of_followed_users(current_user.following)
+    # @posts = (@user_posts + @following_posts)
+
+    @ids = [current_user.id] + current_user.following.pluck(:id)
+    @posts = Post.where(user_id: @ids).order('created_at DESC').page(params[:page]).per(3)
     respond_to do |format|
       format.html
       format.js
